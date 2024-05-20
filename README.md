@@ -1,7 +1,7 @@
 # coco_corre
 clon un poquito chafa :( 
 
-## Requerimientod
+## Requerimientos
 1. Godot 4.2
 
 ### Autor:
