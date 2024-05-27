@@ -6,7 +6,7 @@ var is_mob_on_screen = false
 var is_playing = false
 
 func update_score_label():
-	score = score+100
+	score = score + 10
 	$ScoreLabel.text = 'SCORE: %d'%(score)
 
 func update_high_score_label():

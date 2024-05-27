@@ -17,3 +17,5 @@ position = Vector2(125, 490)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(452, -162)
+limit_top = 0
+limit_bottom = 0
