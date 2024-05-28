@@ -138,7 +138,7 @@ size = Vector2(43.2703, 46.5429)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fvdhl"]
 size = Vector2(144, 69)
 
-[node name="player" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D" groups=["dinosaurio"]]
 script = ExtResource("1_1ussk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bn2y8wk1l0snd"]
+[gd_scene load_steps=6 format=3 uid="uid://bn2y8wk1l0snd"]
 
 [ext_resource type="PackedScene" uid="uid://bt8tl5mgbe7xw" path="res://background/background.tscn" id="1_34ttn"]
 [ext_resource type="Script" path="res://main.gd" id="1_w04d4"]
 [ext_resource type="PackedScene" uid="uid://by6v0usyfw0sk" path="res://floor/floor.tscn" id="2_s2ntg"]
 [ext_resource type="PackedScene" uid="uid://seu4etuefnd5" path="res://player.tscn" id="3_0tivl"]
+[ext_resource type="PackedScene" uid="uid://b8vc8thxd0e2c" path="res://mob/mob.tscn" id="5_vell5"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_w04d4")
@@ -19,3 +20,6 @@ position = Vector2(125, 490)
 position = Vector2(452, -162)
 limit_top = 0
 limit_bottom = 0
+
+[node name="MOB" parent="." instance=ExtResource("5_vell5")]
+position = Vector2(1367, 602)
