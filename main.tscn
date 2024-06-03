@@ -8,6 +8,7 @@
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_w04d4")
+mob_scene = ExtResource("5_vell5")
 
 [node name="Background" parent="." instance=ExtResource("1_34ttn")]
 
@@ -21,5 +22,7 @@ position = Vector2(452, -162)
 limit_top = 0
 limit_bottom = 0
 
-[node name="MOB" parent="." instance=ExtResource("5_vell5")]
-position = Vector2(1367, 602)
+[node name="MOBTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="MOBTimer" to="." method="_on_mob_timer_timeout"]

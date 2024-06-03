@@ -20,6 +20,7 @@ texture = ExtResource("1_xs04l")
 [node name="collisionA" type="CollisionShape2D" parent="."]
 position = Vector2(-64, -65)
 shape = SubResource("CapsuleShape2D_sjcep")
+disabled = true
 debug_color = Color(0.765994, 0.446361, 0.095617, 0.42)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
