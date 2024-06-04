@@ -1,11 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8vc8thxd0e2c"]
+[gd_scene load_steps=3 format=3 uid="uid://b8vc8thxd0e2c"]
 
 [ext_resource type="Script" path="res://mob/mob.gd" id="1_ihima"]
 [ext_resource type="Texture2D" uid="uid://6qv7nhmix238" path="res://icon.svg" id="1_xs04l"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sjcep"]
-radius = 63.0
-height = 128.0
 
 [node name="MOB" type="Area2D"]
 script = ExtResource("1_ihima")
@@ -17,11 +13,9 @@ position = Vector2(-10, -10)
 position = Vector2(-64, -65)
 texture = ExtResource("1_xs04l")
 
-[node name="collisionA" type="CollisionShape2D" parent="."]
+[node name="collisionA" type="CollisionPolygon2D" parent="."]
 position = Vector2(-64, -65)
-shape = SubResource("CapsuleShape2D_sjcep")
-disabled = true
-debug_color = Color(0.765994, 0.446361, 0.095617, 0.42)
+polygon = PackedVector2Array(64, -61.1, 64, 59, 59.6, 64, -60.2, 64, -64, 61, -64, 58, -64, -59, -59, -63.8, 59.2, -64)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -6,6 +6,7 @@ var score = 0
 var high_score = 0
 var is_mob_on_screen = false
 var is_playing = false
+var mob_counter = 0
 
 func update_score_label():
 	score = score + 10

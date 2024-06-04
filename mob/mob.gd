@@ -4,6 +4,7 @@ signal hit
 
 
 func _ready():
+	Ghud.mob_counter = Ghud.mob_counter + 1
 	var collisions = [
 		$collisionA
 	]
@@ -19,8 +20,11 @@ func _ready():
 	selected_sprite.visible = true  
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
+	if Ghud.mob_counter > 0:
+		Ghud.mob_counter = Ghud.mob_counter - 1
 	queue_free()
-
+	
+	
 
 func _on_body_entered(body):
 	if body.is_in_group("dinosaurio"):
