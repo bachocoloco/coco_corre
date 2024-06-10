@@ -4,12 +4,18 @@ signal hit
 
 
 func _ready():
-	Ghud.mob_counter = Ghud.mob_counter + 1
+	Ghud.mob_counter = Ghud.mob_counter + 3
 	var collisions = [
-		$collisionA
+		$collisionA,
+		$Collisionabeja,
+		$CollisionCactus,
+		$CollisionGato
 	]
 	var sprites= [
-		$spriteA
+		$spriteA, 
+		$abejasprite, 
+		$cactus,
+		$gato
 	]
 	
 	var random_int = randi() % collisions.size()
@@ -20,8 +26,11 @@ func _ready():
 	selected_sprite.visible = true  
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
+	$gato.play("parpadear")
+	$CollisionGato. disabled = true
 	if Ghud.mob_counter > 0:
-		Ghud.mob_counter = Ghud.mob_counter - 1
+		Ghud.mob_counter = Ghud.mob_counter - 3
+		
 	queue_free()
 	
 	

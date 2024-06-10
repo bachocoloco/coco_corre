@@ -1,7 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8vc8thxd0e2c"]
+[gd_scene load_steps=9 format=3 uid="uid://b8vc8thxd0e2c"]
 
 [ext_resource type="Script" path="res://mob/mob.gd" id="1_ihima"]
 [ext_resource type="Texture2D" uid="uid://6qv7nhmix238" path="res://icon.svg" id="1_xs04l"]
+[ext_resource type="Texture2D" uid="uid://23usucsi42ae" path="res://dinoplayer/abeja.png" id="3_mty4a"]
+[ext_resource type="Texture2D" uid="uid://h4eakq2ndfym" path="res://dinoplayer/cactusn.png" id="4_xe746"]
+[ext_resource type="Texture2D" uid="uid://bbhf85y1rdc3a" path="res://dinoplayer/G1.png" id="5_5qog4"]
+[ext_resource type="Texture2D" uid="uid://cimqc5vgkl5ph" path="res://dinoplayer/G2.png" id="6_skn73"]
+[ext_resource type="Texture2D" uid="uid://biwafffw4txtf" path="res://dinoplayer/G3.png" id="7_h5wk1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q313o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_skn73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5qog4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_skn73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_h5wk1")
+}],
+"loop": true,
+"name": &"parpadear",
+"speed": 5.0
+}]
 
 [node name="MOB" type="Area2D"]
 script = ExtResource("1_ihima")
@@ -10,12 +35,55 @@ script = ExtResource("1_ihima")
 position = Vector2(-10, -10)
 
 [node name="spriteA" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-64, -65)
 texture = ExtResource("1_xs04l")
 
 [node name="collisionA" type="CollisionPolygon2D" parent="."]
+visible = false
 position = Vector2(-64, -65)
 polygon = PackedVector2Array(64, -61.1, 64, 59, 59.6, 64, -60.2, 64, -64, 61, -64, 58, -64, -59, -59, -63.8, 59.2, -64)
+disabled = true
+
+[node name="abejasprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-62, -225)
+scale = Vector2(4, 3.84375)
+texture = ExtResource("3_mty4a")
+
+[node name="Collisionabeja" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2(-66, -221)
+scale = Vector2(4, 3.84375)
+polygon = PackedVector2Array(15, -9, 15, -2, 12.8, -2, 10, 0.799999, 10, 6.5, 14.2, 15, 10.1, 15, -4.5, 16, -6, 16, -6, 13.9, -14, 6.9, -14, 2.4, -16, -2.1, -16, -16, 6, -16)
+disabled = true
+
+[node name="cactus" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-62, -58)
+scale = Vector2(3.71804, 3.33398)
+texture = ExtResource("4_xe746")
+
+[node name="CollisionCactus" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2(-64, -53)
+scale = Vector2(3.16324, 3.21741)
+polygon = PackedVector2Array(6, -15.4, 7.4, -12, 16, -12, 16, 4, 13.5, 11, 8, 11, 8, 16, -9, 16, -9, 7.5, -16, 5.5, -16, -0.7, -16, -9, -15.4, -9, -12.8, -16, -7.7, -16, -6.7, -15.4, -5.4, -16, 6, -16)
+disabled = true
+
+[node name="gato" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-59, -56)
+scale = Vector2(3.69314, 3.68033)
+sprite_frames = SubResource("SpriteFrames_q313o")
+animation = &"parpadear"
+
+[node name="CollisionGato" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2(-59, -53)
+scale = Vector2(3.37876, 3.34046)
+polygon = PackedVector2Array(16, -15.2, 16, -7, 14, -3.5, 14, 3, 16, 4.5, 16, 14.8, 14.8, 16, -12, 16, -12, 15.3, -16, 2.6, -16, -7.8, -13.8, -16, 14.4, -16)
+disabled = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
