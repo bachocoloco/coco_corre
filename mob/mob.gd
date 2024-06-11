@@ -6,16 +6,18 @@ signal hit
 func _ready():
 	Ghud.mob_counter = Ghud.mob_counter + 3
 	var collisions = [
-		$collisionA,
 		$Collisionabeja,
 		$CollisionCactus,
-		$CollisionGato
+		$CollisionGato,
+		$CollisionCaracol,
+		$CollisionSpidey
 	]
 	var sprites= [
-		$spriteA, 
 		$abejasprite, 
 		$cactus,
-		$gato
+		$gato,
+		$caracol,
+		$spidey
 	]
 	
 	var random_int = randi() % collisions.size()
@@ -26,16 +28,19 @@ func _ready():
 	selected_sprite.visible = true  
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
-	$gato.play("parpadear")
-	$CollisionGato. disabled = true
+
 	if Ghud.mob_counter > 0:
 		Ghud.mob_counter = Ghud.mob_counter - 3
 		
 	queue_free()
-	
+	sprites_animation()
 	
 
 func _on_body_entered(body):
 	if body.is_in_group("dinosaurio"):
 		print("game over")
 		hit.emit()
+		
+func sprites_animation():
+	$gato.play("parpadear")
+	$CollisionGato. disabled = true

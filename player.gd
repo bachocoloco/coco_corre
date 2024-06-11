@@ -7,6 +7,7 @@ const GRAVITY =2500
 
 var speed_scale = 1
 
+
 func _physics_process(delta):
 	if Ghud.is_playing == true:
 		if is_on_floor():
@@ -29,3 +30,7 @@ func _physics_process(delta):
 		$CrouchCollisionShape2D2. disabled = !$CollisionShape2D. disabled
 		move_and_slide()
 		
+func player_stop():
+	if Ghud.game_over == true:
+		$AnimatedSprite2D.stop()
+
